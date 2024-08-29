@@ -1,21 +1,33 @@
-import { useState, createContext } from 'react';
+import { useState, createContext, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+
 import NavBar from './components/NavBar/NavBar';
 import Landing from './components/Landing/Landing';
 import Dashboard from './components/Dashboard/Dashboard';
 import SignupForm from './components/SignupForm/SignupForm';
 import SigninForm from './components/SigninForm/SigninForm';
+
 import * as authService from '../src/services/authService'; // import the authservice
+import * as characterService from '../src/services/characterService';
 
 export const AuthedUserContext = createContext(null);
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser()); // using the method from authservice
+  const [characters, setCharacters] = useState([]);
 
   const handleSignout = () => {
     authService.signout();
     setUser(null);
   };
+
+  useEffect(() => {
+    const fetchAllCharacters = async () => {
+      const characterData = await characterService.index(user._id);
+      console.log('characterData: ', characterData);
+    };
+    if (user) fetchAllCharacters();
+  }, [user]);
 
   return (
     <>
