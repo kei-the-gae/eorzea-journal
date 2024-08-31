@@ -24,7 +24,7 @@ const App = () => {
   useEffect(() => {
     const fetchAllCharacters = async () => {
       const characterData = await characterService.index(user._id);
-      console.log('characterData: ', characterData);
+      setCharacters(characterData);
     };
     if (user) fetchAllCharacters();
   }, [user]);
@@ -35,7 +35,7 @@ const App = () => {
         <NavBar user={user} handleSignout={handleSignout} />
         <Routes>
           {user ? (
-            <Route path="/" element={<Dashboard user={user} />} />
+            <Route path="/" element={<Dashboard user={user} characters={characters} />} />
           ) : (
             <Route path="/" element={<Landing />} />
           )}
