@@ -15,6 +15,7 @@ export const AuthedUserContext = createContext(null);
 const App = () => {
   const [user, setUser] = useState(authService.getUser()); // using the method from authservice
   const [characters, setCharacters] = useState([]);
+  const [selectedCharacter, setSelectedCharacter] = useState(null);
 
   const handleSignout = () => {
     authService.signout();
@@ -29,13 +30,26 @@ const App = () => {
     if (user) fetchAllCharacters();
   }, [user]);
 
+  const updateSelectedCharacter = (character) => {
+    setSelectedCharacter(character)
+  };
+
   return (
     <>
       <AuthedUserContext.Provider value={user}>
         <NavBar user={user} handleSignout={handleSignout} />
         <Routes>
           {user ? (
-            <Route path="/" element={<Dashboard user={user} characters={characters} />} />
+            <Route
+              path="/"
+              element={
+                <Dashboard
+                  user={user}
+                  characters={characters}
+                  updateSelectedCharacter={updateSelectedCharacter}
+                />
+              }
+            />
           ) : (
             <Route path="/" element={<Landing />} />
           )}

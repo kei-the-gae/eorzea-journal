@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 
-const CharacterList = ({ characters }) => {
+const CharacterList = ({ user, characters, updateSelectedCharacter }) => {
     return (
         <ul>
             {characters.map(character => (
-                <Link key={character._id}><li>{character.name}</li></Link>
+                <a key={character._id} onClick={() => updateSelectedCharacter(character)}><li>{character.name}</li></a>
             ))}
         </ul>
     );
