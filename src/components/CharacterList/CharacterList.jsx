@@ -1,6 +1,6 @@
 const CharacterList = ({ characters, updateSelectedCharacter, isCharacterFormOpen, handleCharacterFormView }) => {
     const characterList = characters.map(character =>
-        <a key={character._id} onClick={() => updateSelectedCharacter(character)}><li>{character.name}</li></a>
+        <a key={character._id} onClick={() => updateSelectedCharacter(character)}><li>{character.name} on {character.world}</li></a>
     );
     return (
         <section>
