@@ -2,6 +2,7 @@ import { AuthedUserContext } from '../../App';
 import { useContext } from 'react';
 import CharacterList from '../CharacterList/CharacterList';
 import CharacterDetails from '../CharacterDetails/CharacterDetails';
+import CharacterForm from '../CharacterForm/CharacterForm';
 
 const Dashboard = ({ characters, selectedCharacter, updateSelectedCharacter }) => {
   const user = useContext(AuthedUserContext);
@@ -14,6 +15,9 @@ const Dashboard = ({ characters, selectedCharacter, updateSelectedCharacter }) =
       />
       <CharacterDetails
         selectedCharacter={selectedCharacter}
+      />
+      <CharacterForm
+
       />
     </main>
   );
