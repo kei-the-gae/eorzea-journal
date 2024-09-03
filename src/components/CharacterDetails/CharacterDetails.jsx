@@ -7,7 +7,7 @@ const CharacterDetails = ({ selectedCharacter }) => {
     return (
         <section>
             <h1>{selectedCharacter.name}</h1>
-            <h2>{selectedCharacter.datacenter}</h2>
+            <h2>{selectedCharacter.datacenter} - {selectedCharacter.world}</h2>
             <p>Story completion: {completion}</p>
             <p>Duties complete:</p>
             <ul>
