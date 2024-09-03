@@ -27,7 +27,22 @@ const create = async (userId, formData) => {
     };
 };
 
+const deleteCharacter = async (userId, characterId) => {
+    try {
+        const res = await fetch(`${BASE_URL}/${userId}/characters/${characterId}`, {
+            method: 'delete',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+        });
+        return res.json();
+    } catch (err) {
+        console.log(err);
+    };
+};
+
 export {
     index,
     create,
+    deleteCharacter,
 };

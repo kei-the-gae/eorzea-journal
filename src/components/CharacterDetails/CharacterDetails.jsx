@@ -1,4 +1,4 @@
-const CharacterDetails = ({ selectedCharacter }) => {
+const CharacterDetails = ({ selectedCharacter, characters, handleDeleteCharacter }) => {
     if (!selectedCharacter) return (<section><p>No character selected.</p></section>);
     const completion = selectedCharacter.isStoryComplete ? 'Completed' : 'Incomplete';
     const dutyList = selectedCharacter.dutiesComplete.map(duty => (<li key={duty._id}>{duty.name}</li>));
@@ -21,6 +21,11 @@ const CharacterDetails = ({ selectedCharacter }) => {
             <ul>
                 {!selectedCharacter.todos.length ? 'No todos.' : todoList}
             </ul>
+            {characters.some(character => character._id === selectedCharacter._id) && (
+                <>
+                    <button onClick={() => handleDeleteCharacter(selectedCharacter._id)}>Delete</button>
+                </>
+            )}
         </section>
     );
 };

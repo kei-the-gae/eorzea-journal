@@ -45,6 +45,12 @@ const App = () => {
     setIsCharacterFormOpen(false);
   };
 
+  const handleDeleteCharacter = async (characterId) => {
+    const deletedCharacter = await characterService.deleteCharacter(user._id, characterId);
+    setCharacters(characters.filter(character => character._id !== deletedCharacter._id));
+    setSelectedCharacter(null);
+  };
+
   return (
     <>
       <AuthedUserContext.Provider value={user}>
@@ -62,6 +68,7 @@ const App = () => {
                   isCharacterFormOpen={isCharacterFormOpen}
                   handleCharacterFormView={handleCharacterFormView}
                   handleAddCharacter={handleAddCharacter}
+                  handleDeleteCharacter={handleDeleteCharacter}
                 />
               }
             />
