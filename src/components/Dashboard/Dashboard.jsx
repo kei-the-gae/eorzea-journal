@@ -4,7 +4,7 @@ import CharacterList from '../CharacterList/CharacterList';
 import CharacterDetails from '../CharacterDetails/CharacterDetails';
 import CharacterForm from '../CharacterForm/CharacterForm';
 
-const Dashboard = ({ characters, selectedCharacter, updateSelectedCharacter, isCharacterFormOpen, handleCharacterFormView, handleAddCharacter, handleDeleteCharacter }) => {
+const Dashboard = ({ characters, selectedCharacter, updateSelectedCharacter, isCharacterFormOpen, handleCharacterFormView, handleAddCharacter, handleDeleteCharacter, handleUpdateCharacter }) => {
   const user = useContext(AuthedUserContext);
   return (
     <main>
@@ -17,11 +17,14 @@ const Dashboard = ({ characters, selectedCharacter, updateSelectedCharacter, isC
       />
       {isCharacterFormOpen ?
         (<CharacterForm
+          selectedCharacter={selectedCharacter}
           handleAddCharacter={handleAddCharacter}
+          handleUpdateCharacter={handleUpdateCharacter}
         />) :
         (<CharacterDetails
           selectedCharacter={selectedCharacter}
           characters={characters}
+          handleCharacterFormView={handleCharacterFormView}
           handleDeleteCharacter={handleDeleteCharacter}
         />)}
     </main>

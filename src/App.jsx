@@ -35,7 +35,8 @@ const App = () => {
     setSelectedCharacter(character)
   };
 
-  const handleCharacterFormView = () => {
+  const handleCharacterFormView = (character) => {
+    if (!character) setSelectedCharacter(null);
     setIsCharacterFormOpen(!isCharacterFormOpen);
   };
 
@@ -49,6 +50,13 @@ const App = () => {
     const deletedCharacter = await characterService.deleteCharacter(user._id, characterId);
     setCharacters(characters.filter(character => character._id !== deletedCharacter._id));
     setSelectedCharacter(null);
+  };
+
+  const handleUpdateCharacter = async (characterId, characterFormData) => {
+    const updatedCharacter = await characterService.updateCharacter(user._id, characterId, characterFormData);
+    setCharacters(characters.map(character => (characterId === character._id ? updatedCharacter : character)));
+    setIsCharacterFormOpen(false);
+    setSelectedCharacter(updatedCharacter);
   };
 
   return (
@@ -69,6 +77,7 @@ const App = () => {
                   handleCharacterFormView={handleCharacterFormView}
                   handleAddCharacter={handleAddCharacter}
                   handleDeleteCharacter={handleDeleteCharacter}
+                  handleUpdateCharacter={handleUpdateCharacter}
                 />
               }
             />

@@ -1,4 +1,4 @@
-const CharacterDetails = ({ selectedCharacter, characters, handleDeleteCharacter }) => {
+const CharacterDetails = ({ selectedCharacter, characters, handleCharacterFormView, handleDeleteCharacter }) => {
     if (!selectedCharacter) return (<section><p>No character selected.</p></section>);
     const completion = selectedCharacter.isStoryComplete ? 'Completed' : 'Incomplete';
     const dutyList = selectedCharacter.dutiesComplete.map(duty => (<li key={duty._id}>{duty.name}</li>));
@@ -23,6 +23,7 @@ const CharacterDetails = ({ selectedCharacter, characters, handleDeleteCharacter
             </ul>
             {characters.some(character => character._id === selectedCharacter._id) && (
                 <>
+                    <button onClick={() => handleCharacterFormView(selectedCharacter)}>Edit</button>
                     <button onClick={() => handleDeleteCharacter(selectedCharacter._id)}>Delete</button>
                 </>
             )}

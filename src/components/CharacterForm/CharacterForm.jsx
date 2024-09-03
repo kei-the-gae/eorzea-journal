@@ -9,8 +9,8 @@ const initialState = {
     isStoryComplete: false,
 };
 
-const CharacterForm = ({ handleAddCharacter }) => {
-    const [formData, setFormData] = useState(initialState);
+const CharacterForm = ({ selectedCharacter, handleAddCharacter, handleUpdateCharacter }) => {
+    const [formData, setFormData] = useState(selectedCharacter ? selectedCharacter : initialState);
 
     const handleWorldSelect = e => {
         const aether = ['Adamantoise', 'Cactuar', 'Faerie', 'Gilgamesh', 'Jenova', 'Midgardsormr', 'Sargatanas', 'Siren'];
@@ -47,7 +47,11 @@ const CharacterForm = ({ handleAddCharacter }) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        handleAddCharacter(formData);
+        if (selectedCharacter) {
+            handleUpdateCharacter(selectedCharacter._id, formData);
+        } else {
+            handleAddCharacter(formData);
+        };
     };
 
     return (
@@ -90,7 +94,7 @@ const CharacterForm = ({ handleAddCharacter }) => {
                     onChange={handleChange}
                 />
                 <label htmlFor='false'>Incomplete</label>
-                <button type='submit'>Create New Character</button>
+                <button type='submit'>{selectedCharacter ? 'Update Character' : 'Add New Character'}</button>
             </form>
         </section>
     );
