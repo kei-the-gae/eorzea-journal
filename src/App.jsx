@@ -46,6 +46,7 @@ const App = () => {
                 <Dashboard
                   user={user}
                   characters={characters}
+                  selectedCharacter={selectedCharacter}
                   updateSelectedCharacter={updateSelectedCharacter}
                 />
               }
