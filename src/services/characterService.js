@@ -57,9 +57,26 @@ const updateCharacter = async (userId, characterId, formData) => {
     };
 };
 
+const createJob = async (userId, characterId, formData) => {
+    try {
+        const res = await fetch(`${BASE_URL}/${userId}/characters/${characterId}/jobs`, {
+            method: 'post',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+        return res.json();
+    } catch (err) {
+        console.log(err);
+    };
+};
+
 export {
     index,
     create,
     deleteCharacter,
     updateCharacter,
+    createJob,
 };

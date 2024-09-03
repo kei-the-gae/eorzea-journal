@@ -17,6 +17,7 @@ const App = () => {
   const [characters, setCharacters] = useState([]);
   const [selectedCharacter, setSelectedCharacter] = useState(null);
   const [isCharacterFormOpen, setIsCharacterFormOpen] = useState(false);
+  const [isJobFormOpen, setIsJobFormOpen] = useState(false);
 
   const handleSignout = () => {
     authService.signout();
@@ -40,6 +41,11 @@ const App = () => {
     setIsCharacterFormOpen(!isCharacterFormOpen);
   };
 
+  const handleJobFormView = (character) => {
+    if (!character) setSelectedCharacter(null);
+    setIsJobFormOpen(!isJobFormOpen);
+  };
+
   const handleAddCharacter = async (characterFormData) => {
     const newCharacter = await characterService.create(user._id, characterFormData);
     setCharacters([...characters, newCharacter]);
@@ -57,6 +63,13 @@ const App = () => {
     setCharacters(characters.map(character => (characterId === character._id ? updatedCharacter : character)));
     setIsCharacterFormOpen(false);
     setSelectedCharacter(updatedCharacter);
+  };
+
+  const handleAddJob = async (characterId, jobFormData) => {
+    const newJob = await characterService.createJob(user._id, characterId, jobFormData);
+    setSelectedCharacter({ ...selectedCharacter, jobs: [...selectedCharacter.jobs, newJob] });
+    setCharacters(selectedCharacter.jobs.map(job => (newJob === job._id ? newJob : job)));
+    setIsJobFormOpen(false);
   };
 
   return (
@@ -78,6 +91,9 @@ const App = () => {
                   handleAddCharacter={handleAddCharacter}
                   handleDeleteCharacter={handleDeleteCharacter}
                   handleUpdateCharacter={handleUpdateCharacter}
+                  isJobFormOpen={isJobFormOpen}
+                  handleJobFormView={handleJobFormView}
+                  handleAddJob={handleAddJob}
                 />
               }
             />
