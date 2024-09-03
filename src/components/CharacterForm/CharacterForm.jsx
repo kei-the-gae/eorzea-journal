@@ -9,7 +9,7 @@ const initialState = {
     isStoryComplete: false,
 };
 
-const CharacterForm = () => {
+const CharacterForm = ({ handleAddCharacter }) => {
     const [formData, setFormData] = useState(initialState);
 
     const handleWorldSelect = e => {
@@ -47,7 +47,7 @@ const CharacterForm = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log('formData', formData);
+        handleAddCharacter(formData);
     };
 
     return (

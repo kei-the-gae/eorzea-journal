@@ -40,7 +40,9 @@ const App = () => {
   };
 
   const handleAddCharacter = async (characterFormData) => {
-    console.log('characterFormData: ', characterFormData);
+    const newCharacter = await characterService.create(user._id, characterFormData);
+    setCharacters([...characters, newCharacter]);
+    setIsCharacterFormOpen(false);
   };
 
   return (
@@ -59,6 +61,7 @@ const App = () => {
                   updateSelectedCharacter={updateSelectedCharacter}
                   isCharacterFormOpen={isCharacterFormOpen}
                   handleCharacterFormView={handleCharacterFormView}
+                  handleAddCharacter={handleAddCharacter}
                 />
               }
             />
