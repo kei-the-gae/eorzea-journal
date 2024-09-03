@@ -16,6 +16,7 @@ const App = () => {
   const [user, setUser] = useState(authService.getUser()); // using the method from authservice
   const [characters, setCharacters] = useState([]);
   const [selectedCharacter, setSelectedCharacter] = useState(null);
+  const [isCharacterFormOpen, setIsCharacterFormOpen] = useState(false);
 
   const handleSignout = () => {
     authService.signout();
@@ -34,6 +35,14 @@ const App = () => {
     setSelectedCharacter(character)
   };
 
+  const handleCharacterFormView = () => {
+    setIsCharacterFormOpen(!isCharacterFormOpen);
+  };
+
+  const handleAddCharacter = async (characterFormData) => {
+    console.log('characterFormData: ', characterFormData);
+  };
+
   return (
     <>
       <AuthedUserContext.Provider value={user}>
@@ -48,6 +57,8 @@ const App = () => {
                   characters={characters}
                   selectedCharacter={selectedCharacter}
                   updateSelectedCharacter={updateSelectedCharacter}
+                  isCharacterFormOpen={isCharacterFormOpen}
+                  handleCharacterFormView={handleCharacterFormView}
                 />
               }
             />
