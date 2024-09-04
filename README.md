@@ -15,6 +15,7 @@ An app to track your progress on your Final Fantasy XIV Online characters.
 [![Netlify](https://img.shields.io/badge/Netlify-%23000000.svg?logo=netlify&logoColor=#00C7B7)](https://eorzea-journal.netlify.app/)[Link to deployed app](https://eorzea-journal.netlify.app/)\
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/kei-the-gae/eorzea-journal-api.git)[Do you care about the API powering this? Here's the repo.](https://github.com/kei-the-gae/eorzea-journal-api.git)\
 ![Heroku](https://img.shields.io/badge/Heroku-430098?logo=heroku&logoColor=fffe) API hosted here
+[![Trello](https://img.shields.io/badge/Trello-0052CC?logo=trello&logoColor=fff)](https://trello.com/b/VwoPUVHQ/ffxiv-tracker)[Planning materials](https://trello.com/b/VwoPUVHQ/ffxiv-tracker)
 
 <p align='center'>
 <img src='ffxiv-copypasta.jpeg' alt='ffxiv copypasta' width='600px' />
@@ -34,7 +35,7 @@ All hail to Yoshi-P and my favorite game of all time
 ![NodeJS](https://img.shields.io/badge/Node.js-6DA55F?logo=node.js&logoColor=white)
 
 ### Stretch goals
-- Didn't manage to make it to adding todos properly - the routes exist in the API for the todos and the schema exists but don't have a way to add them on the front end. 
+- Didn't manage to make it to adding todos properly - the routes exist in the API for the todos and the schema exists but don't have a way to add them on the front end.
 
 - Completed duties required me to handwrite every single duty in the game into the database or find a way to pull them from the Lodestone. As of the time I'm turning this project in there are 349 duties in the game. I did not have the time nor energy. It shows up in the character though as an empty array for future expansion.
 
