@@ -41,8 +41,8 @@ const JobOptions = [
     'Fisher',
 ];
 
-const JobForm = ({ selectedCharacter, handleAddJob }) => {
-    const [formData, setFormData] = useState(initialState);
+const JobForm = ({ selectedCharacter, selectedJob, handleAddJob, handleUpdateJob }) => {
+    const [formData, setFormData] = useState(selectedJob ? selectedJob : initialState);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -50,8 +50,11 @@ const JobForm = ({ selectedCharacter, handleAddJob }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        handleAddJob(selectedCharacter._id, formData);
-        setFormData(initialState);
+        if (selectedJob) {
+            handleUpdateJob(selectedCharacter._id, selectedJob._id, formData);
+        } else {
+            handleAddJob(selectedCharacter._id, formData);
+        };
     };
 
     return (
@@ -77,7 +80,7 @@ const JobForm = ({ selectedCharacter, handleAddJob }) => {
                 max='100'
                 onChange={handleChange}
             />
-            <button type="submit">Add Job</button>
+            <button type="submit">{selectedJob ? 'Update Job' : 'Add New Job'}</button>
         </form >
     );
 };

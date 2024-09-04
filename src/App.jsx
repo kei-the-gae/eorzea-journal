@@ -17,6 +17,7 @@ const App = () => {
   const [characters, setCharacters] = useState([]);
   const [selectedCharacter, setSelectedCharacter] = useState(null);
   const [isCharacterFormOpen, setIsCharacterFormOpen] = useState(false);
+  const [selectedJob, setSelectedJob] = useState(null);
   const [isJobFormOpen, setIsJobFormOpen] = useState(false);
 
   const handleSignout = () => {
@@ -41,8 +42,13 @@ const App = () => {
     setIsCharacterFormOpen(!isCharacterFormOpen);
   };
 
-  const handleJobFormView = (character) => {
-    if (!character) setSelectedCharacter(null);
+  const updateSelectedJob = (job) => {
+    setSelectedJob(job);
+  };
+
+  const handleJobFormView = (job) => {
+    if (!job) setSelectedJob(null);
+    updateSelectedJob(job);
     setIsJobFormOpen(!isJobFormOpen);
   };
 
@@ -67,8 +73,16 @@ const App = () => {
 
   const handleAddJob = async (characterId, jobFormData) => {
     const newJob = await characterService.createJob(user._id, characterId, jobFormData);
-    setSelectedCharacter({ ...selectedCharacter, jobs: [...selectedCharacter.jobs, newJob] });
-    setCharacters(selectedCharacter.jobs.map(job => (newJob === job._id ? newJob : job)));
+    const updatedCharacter = { ...selectedCharacter, jobs: [...selectedCharacter.jobs, newJob] }
+    setSelectedCharacter(updatedCharacter);
+    setCharacters(characters.map(character => (updatedCharacter._id === character._id ? updatedCharacter : character)));
+    setIsJobFormOpen(false);
+  };
+
+  const handleUpdateJob = async (characterId, jobId, jobFormData) => {
+    const updatedCharacter = await characterService.updateJob(user._id, characterId, jobId, jobFormData);
+    setSelectedCharacter(updatedCharacter);
+    setCharacters(characters.map(character => (updatedCharacter._id === character._id ? updatedCharacter : character)));
     setIsJobFormOpen(false);
   };
 
@@ -85,6 +99,7 @@ const App = () => {
                   user={user}
                   characters={characters}
                   selectedCharacter={selectedCharacter}
+                  selectedJob={selectedJob}
                   updateSelectedCharacter={updateSelectedCharacter}
                   isCharacterFormOpen={isCharacterFormOpen}
                   handleCharacterFormView={handleCharacterFormView}
@@ -94,6 +109,7 @@ const App = () => {
                   isJobFormOpen={isJobFormOpen}
                   handleJobFormView={handleJobFormView}
                   handleAddJob={handleAddJob}
+                  handleUpdateJob={handleUpdateJob}
                 />
               }
             />

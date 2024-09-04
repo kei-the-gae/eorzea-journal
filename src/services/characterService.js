@@ -73,10 +73,27 @@ const createJob = async (userId, characterId, formData) => {
     };
 };
 
+const updateJob = async (userId, characterId, jobId, formData) => {
+    try {
+        const res = await fetch(`${BASE_URL}/${userId}/characters/${characterId}/jobs/${jobId}`, {
+            method: 'put',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+        return res.json();
+    } catch (err) {
+        console.log(err);
+    };
+};
+
 export {
     index,
     create,
     deleteCharacter,
     updateCharacter,
     createJob,
+    updateJob,
 };
