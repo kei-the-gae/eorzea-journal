@@ -6,7 +6,7 @@ const CharacterList = ({ characters, updateSelectedCharacter, isCharacterFormOpe
     );
     return (
         <section>
-            <button onClick={handleCharacterFormView}>
+            <button onClick={() => handleCharacterFormView(null)}>
                 {isCharacterFormOpen ? 'Close Form' : 'New Character'}
             </button>
             {!characters.length ? <p>No characters yet.</p> : <ul>{characterList}</ul>}
