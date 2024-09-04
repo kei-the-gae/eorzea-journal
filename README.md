@@ -1,6 +1,13 @@
 # Eorzea Journal
 An app to track your progress on your Final Fantasy XIV Online characters.
 
+<p align='center'>
+<img src='home.png' alt='screenshot of landing page' width='600px' />
+</p>
+<p align='center'>
+<img src='dashboard.png' alt='screenshot of dashboard' width='600px' />
+</p>
+
 *Silly little catbois do silly little catboi things in silly little catboi land...* and forgets what those silly little catboi things are 'cuz he has adhd and this game is over a decade old. The UI doesn't help. If I don't help anyone else, I hope I can get my own tasks together.
 
 ### Getting started
@@ -9,7 +16,9 @@ An app to track your progress on your Final Fantasy XIV Online characters.
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/kei-the-gae/eorzea-journal-api.git)[Do you care about the API powering this? Here's the repo.](https://github.com/kei-the-gae/eorzea-journal-api.git)\
 ![Heroku](https://img.shields.io/badge/Heroku-430098?logo=heroku&logoColor=fffe) API hosted here
 
-![FFXIV Copypasta](ffxiv-copypasta.jpeg)
+<p align='center'>
+<img src='ffxiv-copypasta.jpeg' alt='ffxiv copypasta' width='600px' />
+</p>
 >Have you heard of the critically acclaimed MMORPG Final Fantasy XIV? With an expanded free trial which you can play through the entirety of A Realm Reborn and the award-winning Heavensward and also award-winning Stormblood expansion up to level 70 for free with no restrictions on playtime!
 
 All hail to Yoshi-P and my favorite game of all time
