@@ -1,0 +1,54 @@
+.flexcontainer {
+    display: flex;
+    padding: 40px;
+    gap: 40px;
+}
+
+.characterlistcontainer {
+    width: 100%;
+    min-height: 87vh;
+    display: flex;
+    max-width: 350px;
+    border-radius: 5px;
+    flex-direction: column;
+    background-color: #242424;
+    padding: 21px 21px 28px 21px;
+    border: 1px solid rgb(220, 220, 220);
+    box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
+}
+
+ul {
+    list-style-type: none;
+}
+
+.listitems {
+    color: rgba(255, 255, 255, 0.87);
+    padding: 10px;
+}
+
+.maincontainer {
+    width: 100%;
+    min-height: 87vh;
+    display: flex;
+    border-radius: 5px;
+    flex-direction: column;
+    background-color: #242424;
+    padding: 21px 21px 28px 21px;
+    border: 1px solid rgb(220, 220, 220);
+    box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
+}
+
+.buttoncontainer {
+    display: flex;
+    gap: 4vw;
+}
+
+.joblist {
+    display: flex;
+    gap: 4vw;
+    padding: 4px;
+}

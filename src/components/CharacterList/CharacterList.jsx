@@ -1,6 +1,8 @@
+import styles from '../Dashboard/Dashboard.module.css';
+
 const CharacterList = ({ characters, updateSelectedCharacter, isCharacterFormOpen, handleCharacterFormView }) => {
     const characterList = characters.map(character =>
-        <a key={character._id} onClick={() => updateSelectedCharacter(character)}><li>{character.name} on {character.world}</li></a>
+        <a className={styles.listitems} key={character._id} onClick={() => updateSelectedCharacter(character)}><li>{character.name} on {character.world}</li></a>
     );
     return (
         <section>

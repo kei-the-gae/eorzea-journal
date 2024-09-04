@@ -1,3 +1,5 @@
+import styles from './NavBar.module.css';
+import Icon from '../../../public/ffxiv-icon.png'
 import { Link } from 'react-router-dom';
 import { AuthedUserContext } from '../../App';
 import { useContext } from 'react';
@@ -7,7 +9,8 @@ const NavBar = ({ handleSignout }) => {
   return (
     <>
       {user ? (
-        <nav>
+        <nav className={styles.container}>
+          <img src={Icon} alt='FFXIV Logo' />
           <ul>
             <li>Welcome, {user.username}</li>
             <li>
@@ -21,7 +24,8 @@ const NavBar = ({ handleSignout }) => {
           </ul>
         </nav>
       ) : (
-        <nav>
+        <nav className={styles.container}>
+          <img src={Icon} alt='FFXIV Logo' />
           <ul>
             <li>
               <Link to="/signin">Sign In</Link>

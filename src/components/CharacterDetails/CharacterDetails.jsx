@@ -1,10 +1,11 @@
+import styles from '../Dashboard/Dashboard.module.css';
 import JobForm from '../JobForm/JobForm';
 
 const CharacterDetails = ({ selectedCharacter, selectedJob, characters, handleCharacterFormView, handleDeleteCharacter, isJobFormOpen, handleJobFormView, handleAddJob, handleUpdateJob }) => {
     if (!selectedCharacter) return (<section><p>No character selected.</p></section>);
     const completion = selectedCharacter.isStoryComplete ? 'Completed' : 'Incomplete';
     const dutyList = selectedCharacter.dutiesComplete.map(duty => (<li key={duty._id}>{duty.name}</li>));
-    const jobList = selectedCharacter.jobs.map(job => (<li key={job && job._id}>
+    const jobList = selectedCharacter.jobs.map(job => (<li className={styles.joblist} key={job && job._id}>
         {job && job.name} - lvl {job && job.level}
         <button onClick={() => handleJobFormView(job)}>
             Edit Job
@@ -41,10 +42,10 @@ const CharacterDetails = ({ selectedCharacter, selectedJob, characters, handleCh
                 {!selectedCharacter.todos.length ? 'No todos.' : todoList}
             </ul>
             {characters.some(character => character._id === selectedCharacter._id) && (
-                <>
+                <div className={styles.buttoncontainer}>
                     <button onClick={() => handleCharacterFormView(selectedCharacter)}>Edit</button>
                     <button onClick={() => handleDeleteCharacter(selectedCharacter._id)}>Delete</button>
-                </>
+                </div>
             )}
         </section>
     );
