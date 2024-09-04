@@ -19,6 +19,7 @@ An app to track your progress on your Final Fantasy XIV Online characters.
 <p align='center'>
 <img src='ffxiv-copypasta.jpeg' alt='ffxiv copypasta' width='600px' />
 </p>
+
 >Have you heard of the critically acclaimed MMORPG Final Fantasy XIV? With an expanded free trial which you can play through the entirety of A Realm Reborn and the award-winning Heavensward and also award-winning Stormblood expansion up to level 70 for free with no restrictions on playtime!
 
 All hail to Yoshi-P and my favorite game of all time
