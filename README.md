@@ -14,7 +14,7 @@ An app to track your progress on your Final Fantasy XIV Online characters.
 
 [![Netlify](https://img.shields.io/badge/Netlify-%23000000.svg?logo=netlify&logoColor=#00C7B7)](https://eorzea-journal.netlify.app/)[Link to deployed app](https://eorzea-journal.netlify.app/)\
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/kei-the-gae/eorzea-journal-api.git)[Do you care about the API powering this? Here's the repo.](https://github.com/kei-the-gae/eorzea-journal-api.git)\
-![Heroku](https://img.shields.io/badge/Heroku-430098?logo=heroku&logoColor=fffe) API hosted here
+![Heroku](https://img.shields.io/badge/Heroku-430098?logo=heroku&logoColor=fffe) API hosted here\
 [![Trello](https://img.shields.io/badge/Trello-0052CC?logo=trello&logoColor=fff)](https://trello.com/b/VwoPUVHQ/ffxiv-tracker)[Planning materials](https://trello.com/b/VwoPUVHQ/ffxiv-tracker)
 
 <p align='center'>
